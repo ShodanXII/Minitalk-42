@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahouass <ahouass@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:18:41 by ahouass           #+#    #+#             */
-/*   Updated: 2025/02/07 11:31:22 by ahouass          ###   ########.fr       */
+/*   Updated: 2025/03/21 13:06:32 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		res = (res * 10) + (*str - '0');
+		if (res > 99999)
+		{
+			ft_putstr_fd("PID is too big\n", 1);
+			exit(EXIT_FAILURE);
+		}
 		str++;
 	}
 	return (res);
